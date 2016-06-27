@@ -1,0 +1,9 @@
+.footer {
+  color: blue;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.footer:matches(:first-child) {
+  font-size: 200px;
+}

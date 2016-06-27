@@ -1,0 +1,36 @@
+{
+  "name": "react-webpack",
+  "version": "1.0.0",
+  "description": "Boilerplate for react, webpack and postcss modules",
+  "main": "index.js",
+  "scripts": {
+    "start": "cp ./src/index.html ./dist/ && webpack-dev-server",
+    "postinstall": "mkdirp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanford/react-webpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanford/react-webpack/issues"
+  },
+  "dependencies": {
+    "react": "~15.1.0",
+    "react-dom": "~15.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "~6.3.6",
+    "babel-core": "~6.10.4",
+    "babel-loader": "~6.2.4",
+    "babel-preset-es2015": "~6.9.0",
+    "babel-preset-react": "~6.5.0",
+    "css-loader": "~0.23.1",
+    "mkdirp": "~0.5.1",
+    "postcss-loader": "~0.9.1",
+    "style-loader": "~0.13.1",
+    "webpack": "~1.13.1",
+    "webpack-dev-server": "~1.14.1"
+  }
+}
