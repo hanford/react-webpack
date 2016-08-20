@@ -1,0 +1,24 @@
+machine:
+  node:
+    version: 6
+
+dependencies:
+  pre:
+    - echo //registry.npmjs.org/:_authToken=\${NPM_TOKEN} > .npmrc
+  post:
+    - curl -L https://github.com/EagerIO/Stout/releases/download/v1.2.0/stout-linux > ~/bin/stout
+    - chmod +x ~/bin/stout
+deployment:
+  development:
+    branch: master
+    commands:
+      - npm run build && stout deploy --bucket react-credit-card-development --region us-west-1 --root ./build/ --key $AWS_ACCESS --secret $AWS_SECRET
+  preproduction:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - npm run build && stout deploy --bucket react-credit-card-staging--region us-west-1 --root ./build/ --key $AWS_ACCESS --secret $AWS_SECRET
+      - npm run build-beta && stout deploy --bucket react-credit-card-beta --region us-west-1 --root ./build/ --key $AWS_ACCESS --secret $AWS_SECRET
+  production:
+    branch: production
+    commands:
+      - npm run build && stout deploy --bucket react-credit-card-production --region us-west-1 --root ./build/ --key $AWS_ACCESS --secret $AWS_SECRET
